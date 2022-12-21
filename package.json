@@ -18,5 +18,8 @@
   "homepage": "https://github.com/DianaAlehina/diplom_babylon#readme",
   "devDependencies": {
     "parcel": "^2.8.2"
+  },
+  "dependencies": {
+    "@babylonjs/core": "^5.38.0"
   }
 }
