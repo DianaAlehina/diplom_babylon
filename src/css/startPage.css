@@ -1,0 +1,98 @@
+*, *::before, *::after {
+ box-sizing: border-box;
+}
+
+.window{
+ background-color: #F0BFB1;
+ position: absolute;
+ width: 50%;
+ height: 98%;
+ left: 1%;
+ top: 1%;
+ border-radius: 10px;
+}
+
+.numberOfParticles-field {
+ font-size: 14px;
+ left: 33%;
+ top: 30%;
+ position: relative;
+ --field-padding: 12px;
+ border-top: 20px solid transparent;
+}
+
+.numberOfParticles-field input {
+ border: none;
+ -webkit-appearance: none;
+ -ms-appearance: none;
+ -moz-appearance: none;
+ appearance: none;
+ background: #f2f2f2;
+ padding: 12px;
+ border-radius: 3px;
+ width: 250px;
+ font-size: 14px;
+ padding: var(--field-padding);
+
+}
+
+.numberOfParticles-field .numberOfParticles {
+ position: absolute;
+ left: 12px;
+ bottom: 50%;
+ top: 22px;
+ transform: translateY(-50%);
+ width: calc(100% - 24px);
+ color: #aaa;
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+
+ left: var(--field-padding);
+ width: calc(100% - (var(--field-padding) * 2));
+
+ transition:
+         top 0.3s ease,
+         color 0.3s ease,
+         font-size 0.3s ease;
+}
+
+.numberOfParticles-field input:not(:placeholder-shown) + .placeholder
+.numberOfParticles-field input:focus + .placeholder {
+ top: -10px;
+ font-size: 10px;
+ color: #222;
+}
+
+.animation{
+ position: absolute;
+ width: 254px;
+ height: 66px;
+ /*720 516*/
+ left: 33%;
+ top: 78%;
+
+ background: #F9F3E7;
+ border-radius: 7px;
+}
+
+.textAnimation{
+ position: absolute;
+ width: 190px;
+ height: 34px;
+ left: 16%;
+ top: 24%;
+
+ font-family: 'Inter', serif;
+ font-style: normal;
+ font-weight: 600;
+ font-size: 28px;
+ line-height: 34px;
+ /* identical to box height */
+ display: flex;
+ align-items: center;
+ text-align: center;
+
+ color: #5A5555;
+
+}

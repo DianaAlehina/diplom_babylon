@@ -1,13 +1,76 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <title>babylon</title>
+    <script src="src/valueRange.js" type="module"></script>
+    <link href="src/css/styles.css" rel="stylesheet">
+    <script src="src/particle.js" type="module"></script>
+    <script src="src/drawParticles.js" type="module"></script>
     <script src="src/index.js" type="module"></script>
-    <link href="src/styles.css" rel="stylesheet">
 </head>
 <body>
-<canvas id="renderCanvas"></canvas>
+<div class="window">
+    <br>
+    <!--    Количество    -->
+    <div class="numberOfParticles-field">
+        <label for="numberParticles"> Количество частиц (10 - 200) </label>
+        <input id="numberParticles"
+               type=number
+               placeholder=""
+               min=10 max=200 step=1 value="10"
+               name=price>
+    </div>
+    <br>
+    <!--    Масса    -->
+    <div class="massParticles-field">
+        <label id="massParticlesLabel"> Масса частиц </label>
+        <br>
+        <input id="massParticles"
+               name="massParticles"
+               type="range"
+               min="0.5" max="3.5"
+               step="0.5" value="2"
+               oninput="mass.value=value"
+        />
+        <output id="mass">2</output>
+    </div>
 
+    <br>
 
+    <!--    Диаметер    -->
+    <div class="diameterParticles-field">
+        <label id="diameterParticlesLabel"> Диаметр частиц </label>
+        <br>
+        <input id="diameterParticles"
+               name="diameterParticles"
+               type="range"
+               min="0.5" max="3.5"
+               step="0.5" value="2"
+               oninput="diameter.value=value"
+        />
+        <output id="diameter">2</output>
+    </div>
+
+    <!--    Заряд    -->
+
+    <br>
+
+    <!--    Цвет    -->
+    <div>
+        <input id="color" name="color" type="color" value="#8D9E96"/>
+        <label id="colorLabel" for="color"> цвет частиц </label>
+    </div>
+    <br>
+
+    <div>
+        <input class="styled"
+                type="button"
+                value="Анимировать">
+    </div>
+</div>
+<div class="render">
+    <canvas id="renderCanvas"></canvas>
+</div>
 </body>
 </html>

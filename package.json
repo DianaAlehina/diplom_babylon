@@ -20,6 +20,7 @@
     "parcel": "^2.8.2"
   },
   "dependencies": {
-    "@babylonjs/core": "^5.38.0"
+    "@babylonjs/core": "^5.38.0",
+    "babylonjs": "^5.43.0"
   }
 }

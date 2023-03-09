@@ -1,0 +1,311 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#renderCanvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;-ms-touch-action: none;
+    border-radius: 10px;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+.render{
+    position: absolute;
+    width: 74%;
+    height: 90%;
+    left: 24%;
+    top: 5%;
+    border-radius: 10px;
+}
+.window{
+    background-color: #F0BFB1; /*#F0BFB1;*/
+    position: absolute;
+    width: 22%;
+    height: 90%;
+    left: 2%;
+    top: 5%;
+    border-radius: 10px;
+}
+
+label {
+    font-size: 20px;
+    color: black;
+    font-family: Helvetica, Arial, serif;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+input[type="number"] {
+    background-color: #F9F3E7;
+    margin-top: 15px;
+    margin-left: 25px;
+    vertical-align: top;
+    outline: none;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 10px;
+    display: inline-block;
+    width: 180px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    border-radius: 5px;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="number"]:focus {
+    outline: 2px solid blue;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+output {
+    background: #8D9E96;
+    padding: 5px 16px;
+    border-radius: 4px;
+    color: #F9F3E7;
+}
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 180px;
+    height: 7px;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #F9F3E7;
+    background-image: linear-gradient(#8D9E96, #8D9E96);
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+}
+
+/* Input Thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 17px;
+    width: 17px;
+    left: auto;
+    border-radius: 50%;
+    background: #8D9E96;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+}
+
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background: #8D9E96;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+}
+
+input[type="range"]::-ms-thumb {
+    -webkit-appearance: none;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background: #8D9E96;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+    height: 19px;
+    width: 19px;
+    cursor: pointer;
+    background: #5E887C;
+}
+
+input[type="range"]::-moz-range-thumb:active {
+    height: 19px;
+    width: 19px;
+    cursor: pointer;
+    background: #5E887C;
+}
+
+input[type="range"]::-ms-thumb:active {
+    height: 19px;
+    width: 19px;
+    cursor: pointer;
+    background: #5E887C;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    cursor: pointer;
+    background: #5E887C;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    cursor: pointer;
+    background: #5E887C;
+}
+
+input[type="range"]::-ms-thumb:hover {
+    cursor: pointer;
+    background: #5E887C;
+}
+
+
+
+/* Input Track */
+input[type=range]::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+input[type=range]::-moz-range-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+input[type="range"]::-ms-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+input[type="color"] {
+    width: 48px;
+    height: 24px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#colorLabel {
+    font-size: 20px;
+    color: black;
+    font-family: Helvetica, Arial, serif;
+}
+
+
+
+.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20%;
+    margin-left: 14%;
+    font-size: 1rem;
+    text-align: center;
+    color: #000000;
+    border-radius: 10px;
+    background-color: #F9F3E7;
+}
+
+.styled:hover {
+    cursor: pointer;
+}
+
+.styled:active {
+    cursor: pointer;
+    background-color: #E5DCCD;
+}
+
+
+/*
+.numberOfParticles-field {
+    font-size: 14px;
+    left: 33%;
+    top: 30%;
+    position: relative;
+    --field-padding: 12px;
+    border-top: 20px solid transparent;
+}
+
+
+.numberOfParticles-field input {
+    border: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #f2f2f2;
+    padding: 12px;
+    border-radius: 3px;
+    width: 250px;
+    font-size: 14px;
+    padding: var(--field-padding);
+
+}
+
+.numberOfParticles-field .numberOfParticles {
+    position: absolute;
+    left: 12px;
+    bottom: 50%;
+    top: 22px;
+    transform: translateY(-50%);
+    width: calc(100% - 24px);
+    color: #aaa;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    left: var(--field-padding);
+    width: calc(100% - (var(--field-padding) * 2));
+
+    transition:
+            top 0.3s ease,
+            color 0.3s ease,
+            font-size 0.3s ease;
+}
+
+.numberOfParticles-field input:not(:placeholder-shown) + .placeholder
+.numberOfParticles-field input:focus + .placeholder {
+    top: -10px;
+    font-size: 10px;
+    color: #222;
+}
+
+.animation{
+    position: absolute;
+    width: 254px;
+    height: 66px;
+    /*720 516
+    left: 33%;
+    top: 78%;
+
+    background: #F9F3E7;
+    border-radius: 7px;
+}
+
+.textAnimation{
+    position: absolute;
+    width: 190px;
+    height: 34px;
+    left: 16%;
+    top: 24%;
+
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    /* identical to box height /
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #5A5555;
+
+}*/
