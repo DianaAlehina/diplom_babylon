@@ -5,80 +5,130 @@
     <title>babylon</title>
     <script src="src/valueRange.js" type="module"></script>
     <link href="src/css/styles.css" rel="stylesheet">
-    <script src="src/particle.js" type="module"></script>
-    <script src="src/drawParticles.js" type="module"></script>
+    <script src="src/animation/drawMolecus.js" type="module"></script>
     <script src="src/index.js" type="module"></script>
 </head>
 <body>
 <div class="window">
     <br>
-
     <div class="functionParticles-field">
-        <label id="functionParticlesLabel">Функция движения </label>
+        <label id="functionParticlesLabel">Функция движения</label>
         <!--<input id="listFunction" class="select" type="text" list="fun" />
         <datalist id="fun">
             <option value="static" selected> Статическая функция</option>
             <option value="kulon">Закон Кулона</option>
         </datalist>-->
         <select id="listFunction" class="select">
-            <option value="static" selected> Статическая функция</option>
-            <option value="kulon">Закон Кулона</option>
+            <option value="static" selected> Статическая функция </option>
+            <option value="kulon"> Закон Кулона </option>
+            <option value="water"> Модель H2O </option>
         </select>
     </div>
 
-    <br>
-    <!--    Количество    -->
-    <div class="numberOfParticles-field">
-        <label for="numberParticles"> Количество частиц </label>
-        <input id="numberParticles"
-               type=number
-               placeholder=""
-               min=10 max=200 step=1 value="10"
-               name=price>
-    </div>
-    <br>
-    <!--    Масса    -->
-    <label id="massParticlesLabel"> Масса частиц </label>
-    <div class="massParticles-field">
-        <input id="massParticles"
-               name="massParticles"
-               type="range"
-               min="0.5" max="3.5"
-               step="0.5" value="2"
-               oninput="mass.value=value"
-        />
-        <output id="mass">2</output>
-    </div>
-
-    <br>
-
-    <!--    Диаметер    -->
-    <label id="diameterParticlesLabel"> Диаметр частиц </label>
-    <div class="diameterParticles-field">
-        <input id="diameterParticles"
-               name="diameterParticles"
-               type="range"
-               min="0.5" max="3.5"
-               step="0.5" value="2"
-               oninput="diameter.value=value"
-        />
-        <output id="diameter">2</output>
-    </div>
-
-    <!--    Заряд    -->
-
-    <br>
-
-    <!--    Цвет    -->
     <div>
-        <input id="color" name="color" type="color" value="#8D9E96"/>
-        <label id="colorLabel" for="color"> цвет частиц </label>
+        <input class="styledParticles"
+               type="button"
+               id="buttonPlus"
+               value="Положительные частицы">
+    </div>
+
+    <div class="classButtonPlus" id="idButtonPlus">
+        <br>
+        <!--    Количество    -->
+        <label for="numberParticlesPlus" id="numberParticlesPlusText">количество</label>
+        <div class="numberOfParticles-field">
+            <input id="numberParticlesPlus"
+                   type=number
+                   placeholder=""
+                   min=10 max=200 step=1 value=10
+                   name=price
+                   text="количество"/>
+        </div>
+        <!--    Масса    -->
+        <label id="massParticlesLabelPlus">масса</label>
+        <div class="massParticles-field">
+            <input id="massParticlesPlus"
+                   name="massParticles"
+                   type="range"
+                   min="0.5" max="3.5"
+                   step="0.5" value="2"
+                   oninput="massPlus.value=value"
+            />
+            <output id="massPlus">2</output>
+        </div>
+        <!--    Диаметр    -->
+        <label id="diameterParticlesLabelPlus">диаметр</label>
+        <div class="diameterParticles-field">
+            <input id="diameterParticlesPlus"
+                   name="diameterParticles"
+                   type="range"
+                   min="0.5" max="3.5"
+                   step="0.5" value="2"
+                   oninput="diameterPlus.value=value"
+            />
+            <output id="diameterPlus">2</output>
+        </div>
+
+        <div>
+            <input id="colorPlus" name="color" type="color" value="#ff0000"/>
+            <label id="colorLabelPlus" for="colorPlus">цвет</label>
+        </div>
+    </div>
+
+    <div>
+        <input class="styledParticles"
+               type="button"
+               id="buttonMinus"
+               value="Отрицательные частицы">
+    </div>
+
+    <div class="classButtonPlus" id="idButtonMinus">
+        <br>
+        <!--    Количество    -->
+        <label id="numberParticlesMinusText" for="numberParticlesMinus">количество</label>
+        <div class="numberOfParticles-field">
+            <input id="numberParticlesMinus"
+                   type=number
+                   placeholder=""
+                   min=10 max=200 step=1 value=10
+                   name=price>
+        </div>
+        <!--    Масса    -->
+        <label id="massParticlesLabelMinus">масса</label>
+        <div class="massParticles-field">
+            <input id="massParticlesMinus"
+                   name="massParticles"
+                   type="range"
+                   min="0.5" max="3.5"
+                   step="0.5" value="2"
+                   oninput="massMinus.value=value"
+            />
+            <output id="massMinus">2</output>
+        </div>
+        <!--    Диаметр    -->
+        <label id="diameterParticlesLabelMinus">диаметр</label>
+        <div class="diameterParticles-field">
+            <input id="diameterParticlesMinus"
+                   name="diameterParticles"
+                   type="range"
+                   min="0.5" max="3.5"
+                   step="0.5" value="2"
+                   oninput="diameterMinus.value=value"
+            />
+            <output id="diameterMinus">2</output>
+        </div>
+
+        <div>
+            <input id="colorMinus" name="color" type="color" value="#0000ff"/>
+            <label id="colorLabelMinus" for="colorMinus">цвет</label>
+        </div>
     </div>
 
     <div>
         <input class="styled"
-                type="button"
-                value="Анимировать">
+               id="button"
+               type="button"
+               value="Анимировать">
     </div>
 </div>
 
