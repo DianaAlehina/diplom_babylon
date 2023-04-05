@@ -12,9 +12,24 @@
 <body>
 <div class="window">
     <br>
+
+    <div class="functionParticles-field">
+        <label id="functionParticlesLabel">Функция движения </label>
+        <!--<input id="listFunction" class="select" type="text" list="fun" />
+        <datalist id="fun">
+            <option value="static" selected> Статическая функция</option>
+            <option value="kulon">Закон Кулона</option>
+        </datalist>-->
+        <select id="listFunction" class="select">
+            <option value="static" selected> Статическая функция</option>
+            <option value="kulon">Закон Кулона</option>
+        </select>
+    </div>
+
+    <br>
     <!--    Количество    -->
     <div class="numberOfParticles-field">
-        <label for="numberParticles"> Количество частиц (10 - 200) </label>
+        <label for="numberParticles"> Количество частиц </label>
         <input id="numberParticles"
                type=number
                placeholder=""
@@ -23,9 +38,8 @@
     </div>
     <br>
     <!--    Масса    -->
+    <label id="massParticlesLabel"> Масса частиц </label>
     <div class="massParticles-field">
-        <label id="massParticlesLabel"> Масса частиц </label>
-        <br>
         <input id="massParticles"
                name="massParticles"
                type="range"
@@ -39,9 +53,8 @@
     <br>
 
     <!--    Диаметер    -->
+    <label id="diameterParticlesLabel"> Диаметр частиц </label>
     <div class="diameterParticles-field">
-        <label id="diameterParticlesLabel"> Диаметр частиц </label>
-        <br>
         <input id="diameterParticles"
                name="diameterParticles"
                type="range"
@@ -61,7 +74,6 @@
         <input id="color" name="color" type="color" value="#8D9E96"/>
         <label id="colorLabel" for="color"> цвет частиц </label>
     </div>
-    <br>
 
     <div>
         <input class="styled"
@@ -69,6 +81,10 @@
                 value="Анимировать">
     </div>
 </div>
+
+<div class="white">
+</div>
+
 <div class="render">
     <canvas id="renderCanvas"></canvas>
 </div>

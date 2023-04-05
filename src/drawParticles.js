@@ -15,6 +15,10 @@ function hex2rgb(c) {
     } : null;
 }
 
+function staticParticle(particle){
+    return particle
+}
+
 function strengthF(particle){
     let distance = 0, constF = 0, strength = new Array(), xVector, yVector, zVector
     for (let i = 0; i < particle.length; i++) {
@@ -90,7 +94,7 @@ function endPoint(particle, speed){
     return particle;
 }
 
-function randomParticle(particle, scene) {
+function createParticle(particle, scene) {
     let geometry, material, colorPart;
 
     for (let i = 0; i < particle.length; i++) {
@@ -113,36 +117,83 @@ function randomParticle(particle, scene) {
     return particle;
 }
 
-export function drawParticles(particle){
+export function drawParticles(canvas, particle, canvasFunctionParticles){
 
-    const canvas = document.getElementById("renderCanvas");
-    const engine = new BABYLON.Engine(canvas, true);
-    let scene = new BABYLON.Scene(engine);
-    scene.clearColor = BABYLON.Color4.FromColor3(BABYLON.Color3.Black);
-    const alpha =  Math.PI/4;
-    const beta = Math.PI/3;
-    const radius = 70;
-    const target = new BABYLON.Vector3(0, 0, 0);
-    const camera = new BABYLON.ArcRotateCamera("Camera", alpha, beta, radius, target, scene);
-    camera.attachControl(canvas, true);
-    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0));
+    let engine = new BABYLON.Engine(canvas, true);
+
+    const createScene = function() {
+        let scene = new BABYLON.Scene(engine);
+        scene.clearColor = BABYLON.Color4.FromColor3(BABYLON.Color3.Black);
+        const alpha = Math.PI / 4;
+        const beta = Math.PI / 3;
+        const radius = 70;
+        const target = new BABYLON.Vector3(0, 0, 0);
+        let camera = new BABYLON.ArcRotateCamera("Camera", alpha, beta, radius, target, scene);
+        camera.attachControl(canvas, true);
+        const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(1, 1, 0), scene);
+        particle = createParticle(particle, scene)
+
+        return scene;
+    };
+
+    const scene = createScene();
+    // engine.runRenderLoop(function(){
+    //     let strength = strengthF(particle)
+    //     let vectorSum = sumStrengthF(strength, particle.length)
+    //     let acceleration = searchAcceleration(particle, vectorSum)
+    //     let speed = searchSpeed(acceleration, particle.length)
+    //     particle = endPoint(particle, speed)
+    //     for (let i = 0; i < particle.length; i++) {
+    //         sphere[i].position.x = particle[i].xEnd
+    //         sphere[i].position.y = particle[i].yEnd
+    //         sphere[i].position.z = particle[i].zEnd
+    //     }
+    //     sceneToRender.render();
+    // });
+    // engine.runRenderLoop(function () {
+    //     scene.render(true, true);
+    //     if (canvasFunctionParticles === "kulon") {
+    //         console.log(1)
+    //         let strength = strengthF(particle)
+    //         let vectorSum = sumStrengthF(strength, particle.length)
+    //         let acceleration = searchAcceleration(particle, vectorSum)
+    //         let speed = searchSpeed(acceleration, particle.length)
+    //         particle = endPoint(particle, speed)
+    //         for (let i = 0; i < particle.length; i++) {
+    //             sphere[i].position.x = particle[i].xEnd
+    //             sphere[i].position.y = particle[i].yEnd
+    //             sphere[i].position.z = particle[i].zEnd
+    //         }
+    //     } else {
+    //         console.log(2)
+    //         particle = staticParticle(particle)
+    //     }
+    //     scene.render();
+    // });
 
 
-    particle = randomParticle(particle, scene)
-
-    engine.runRenderLoop(function(){
-        let strength = strengthF(particle)
-        let vectorSum = sumStrengthF(strength, particle.length)
-        let acceleration = searchAcceleration(particle, vectorSum)
-        let speed = searchSpeed(acceleration, particle.length)
-        particle = endPoint(particle, speed)
-        for (let i = 0; i < particle.length; i++) {
-            sphere[i].position.x = particle[i].xEnd
-            sphere[i].position.y = particle[i].yEnd
-            sphere[i].position.z = particle[i].zEnd
-        }
-
-        scene.render();
-    });
-
+    if (canvasFunctionParticles === "kulon") {
+        scene.render(true, true);
+        engine.runRenderLoop(function () {
+            console.log(1)
+            let strength = strengthF(particle)
+            let vectorSum = sumStrengthF(strength, particle.length)
+            let acceleration = searchAcceleration(particle, vectorSum)
+            let speed = searchSpeed(acceleration, particle.length)
+            particle = endPoint(particle, speed)
+            for (let i = 0; i < particle.length; i++) {
+                sphere[i].position.x = particle[i].xEnd
+                sphere[i].position.y = particle[i].yEnd
+                sphere[i].position.z = particle[i].zEnd
+            }
+            scene.render(true,true);
+        });
+    }
+    else {
+        engine.runRenderLoop(function () {
+            console.log(2)
+            particle = staticParticle(particle)
+            scene.render(true,true);
+        });
+    }
 }
