@@ -21,7 +21,7 @@ export class Particle {
     }
 
     particleCreate(mass, diameter, color) {
-        const Max = 20;
+        const Max = 30;
         this.xRadius = Math.random() * Max;
         this.yRadius = Math.random() * Max;
         this.zRadius = Math.random() * Max;
@@ -35,12 +35,11 @@ export class Particle {
 
 export function classParticleFilling(lengthPar = 10, mass = 2, diameter= 2, color = [1, 0, 0]){
 
-    var particles = []
+    let particles = []
     for (let i = 0; i < lengthPar; i++){
         particles[i] = new Particle()
         particles[i].particleCreate(mass, diameter, color)
     }
-    console.log(lengthPar)
-    console.log(particles.length)
+
     return particles;
 }
