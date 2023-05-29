@@ -146,7 +146,7 @@ export function drawParticles(canvas, particle, canvasFunctionParticles){
     let scene = createScene();
 
     // Комментарий про ошибку, ошибка исчезла и моя способность двигаться на сцене тоже
-    // Строка 154 и 172 закомментировать, а 151 и 168 раскомментировать, тогда ошибки не будет
+    // Строка 198, 206 закомментировать, а 185 и 202 раскомментировать, тогда ошибки не будет
     if ( canvasFunctionParticles === "kulon") {
         // scene.render(true, true);
         engine.runRenderLoop(function () {
