@@ -418,13 +418,18 @@ select {
     background: linear-gradient(to bottom right, #000, #222);
 }
 
-.select::-ms-expand { display: none; }
 .select:hover {
+    width: 250px;
+    height: 40px;
     cursor: pointer;
     color: #ACB7BB;
     border: 0.1rem solid #ACB7BB;
 }
 .select:focus {
+    width: 250px;
+    height: 40px;
     cursor: pointer;
     outline: none;
 }
+
+.select option { font-weight:normal; }
