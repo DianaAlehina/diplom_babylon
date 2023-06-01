@@ -2,7 +2,7 @@ import * as BABYLON from '@babylonjs/core/Legacy/legacy';
 import {nextValue} from "../molecularsMovement/nextValue";
 import {createEnergyNonBonded, createEnergyNonBondedWithoutLJP} from "../energy/EnergyNonBonded";
 import {createLennardJonesPotential} from "../energy/LennardJonesPotential";
-import {createForseColumbsLaw} from "../molecularsMovement/forseColumbsLaw";
+import {createForseColumbsLaw, createForseColumbsLaw2} from "../molecularsMovement/forseColumbsLaw";
 import {accelerationMolecules} from "../molecularsMovement/acceleration";
 import {searchSpeedMolecules} from "../molecularsMovement/speed";
 import {hex2rgb} from "../color/hex2rgb";
@@ -14,7 +14,7 @@ const deltaT = 0.05
 const canvas = document.getElementById("renderCanvas")
 const engine = new BABYLON.Engine(canvas, true)
 const scene = createScene(canvas, engine)
-let currentLoop, sphere = []
+let currentLoop = null, sphere = []
 
 export function createMolecules(molecules, scene) {
     let material, colorPart;

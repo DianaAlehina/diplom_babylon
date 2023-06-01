@@ -1,1 +1,0 @@
-function e(e){let t=e.target;"range"!==e.target.type&&(t=document.getElementById("range"));const n=t.min,a=t.max,r=t.value;t.style.backgroundSize=100*(r-n)/(a-n)+"% 100%"}document.querySelectorAll('input[type="range"]').forEach((t=>{t.addEventListener("input",e)}));
