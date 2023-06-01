@@ -33,7 +33,7 @@ export function createForseColumbsLaw(molecules) {
     return forseColumbsLaw
 }
 
-
+// Функция тест
 export function createForseColumbsLaw2(molecules) {
     const k = 8.99 // * Math.pow(10,9)  // 1/(4 * pi * eps) // 331
     let constF, xNextValue, yNextValue, zNextValue, distance, xVector, yVector, zVector

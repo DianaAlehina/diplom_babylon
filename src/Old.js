@@ -1,7 +1,6 @@
 // import {hex2rgb} from "./color/hex2rgb";
-// import * as BABYLON from "@babylonjs/core/Legacy/legacy";
-//
-// // import * as BABYLON from "@babylonjs/core/Legacy/legacy";
+// import * as BABYLON from "@babylonjs/core/Legacy/legacy"
+
 // export class Particle {
 //     // группа - количество, диаметр, масса, цвет, количество
 //     constructor(id, xRadius, yRadius, zRadius, xEnd, yEnd, zEnd, xStep, yStep, zStep,
