@@ -34,9 +34,11 @@ export function createMolecules(molecules, scene) {
         sphere[i] = BABYLON.Mesh.CreateSphere("sphere", 32, molecules[i].diameter, scene);
 
         // Позиция сферы
-        sphere[i].position.x = molecules[i].xNextValue
-        sphere[i].position.y = molecules[i].yNextValue
-        sphere[i].position.z = molecules[i].zNextValue
+        sphere[i].position = new BABYLON.Vector3(molecules[i].xNextValue, molecules[i].yNextValue, molecules[i].zNextValue)
+
+        // sphere[i].position.x = molecules[i].xNextValue
+        // sphere[i].position.y = molecules[i].yNextValue
+        // sphere[i].position.z = molecules[i].zNextValue
         sphere[i].material = material
     }
     return sphere;
@@ -59,8 +61,8 @@ export function drawMolecus(molecules, moleculesWater, canvasFunctionParticles) 
 
             let forse = createForseColumbsLaw(molecules)
             let energyNonBonded = createEnergyNonBondedWithoutLJP(forse)
-            energyNonBonded = accelerationMolecules(molecules, energyNonBonded)
-            let speedMolecules = searchSpeedMolecules(energyNonBonded, deltaT)
+            let acceleration = accelerationMolecules(molecules, energyNonBonded)
+            let speedMolecules = searchSpeedMolecules(acceleration, deltaT)
             molecules = nextValue(molecules, speedMolecules, deltaT)
             for (let i = 0; i < molecules.length; i++) {
                 sphere[i].position.x = molecules[i].xNextValue
@@ -78,8 +80,8 @@ export function drawMolecus(molecules, moleculesWater, canvasFunctionParticles) 
             let lennardJonesPotential = createLennardJonesPotential(moleculesWater),
                 forse = createForseColumbsLaw(moleculesWater)
             let energyNonBonded = createEnergyNonBonded(forse, lennardJonesPotential)
-            energyNonBonded = accelerationMolecules(moleculesWater, energyNonBonded)
-            let speedMolecules = searchSpeedMolecules(energyNonBonded, deltaT)
+            let acceleration = accelerationMolecules(moleculesWater, energyNonBonded)
+            let speedMolecules = searchSpeedMolecules(acceleration, deltaT)
             moleculesWater = nextValue(moleculesWater, speedMolecules, deltaT)
             moleculesWater = createEnergyBonded(moleculesWater)
             for (let i = 0; i < moleculesWater.length; i++) {

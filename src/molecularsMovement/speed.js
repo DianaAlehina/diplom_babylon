@@ -7,13 +7,13 @@ export class SpeedMolecules{
     }
 }
 
-export function searchSpeedMolecules(energyNonBonded, deltaT = 0.03) {
+export function searchSpeedMolecules(acceleration, deltaT = 0.03) {
     let speedMolecules = []
-    for (let i = 0; i < energyNonBonded.length; i++) {
-        speedMolecules[i] = new SpeedMolecules(i, 0, 0, 0)
-        speedMolecules[i].xSpeed += energyNonBonded[i].xForse * deltaT
-        speedMolecules[i].ySpeed += energyNonBonded[i].yForse * deltaT
-        speedMolecules[i].zSpeed += energyNonBonded[i].zForse * deltaT
+    for (let i = 0; i < acceleration.length; i++) {
+        speedMolecules[i] = new SpeedMolecules(i,
+            acceleration[i].xAccel * deltaT,
+            acceleration[i].yAccel * deltaT,
+            acceleration[i].zAccel * deltaT)
     }
     return speedMolecules
 }

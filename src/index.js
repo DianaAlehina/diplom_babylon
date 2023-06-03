@@ -31,7 +31,6 @@ function updateButton() {
     const functionParticles = document.getElementById("listFunction")
     // console.log(functionParticles.value)
 
-
     let molecules = createClassMolecules(rangeNumberParticlesPlus.value, rangeNumberParticlesMinus.value,
         rangeMassParticlesPlus.value, rangeMassParticlesMinus.value,
         rangeDiameterParticlesPlus.value, rangeDiameterParticlesMinus.value,
