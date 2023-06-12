@@ -10,7 +10,7 @@ import {createEnergyBonded} from "../energy/EnergyBonded";
 import {createScene} from "./createScene";
 import {staticMolecules} from "../molecularsMovement/staticMolecules";
 
-const deltaT = 0.05
+const deltaT = 0.04
 const canvas = document.getElementById("renderCanvas")
 const engine = new BABYLON.Engine(canvas, true)
 const scene = createScene(canvas, engine)
@@ -62,8 +62,8 @@ export function drawMolecus(molecules, moleculesWater, canvasFunctionParticles) 
             let forse = createForseColumbsLaw(molecules)
             let energyNonBonded = createEnergyNonBondedWithoutLJP(forse)
             let acceleration = accelerationMolecules(molecules, energyNonBonded)
-            let speedMolecules = searchSpeedMolecules(acceleration, deltaT)
-            molecules = nextValue(molecules, speedMolecules, deltaT)
+            let speedMolecules = searchSpeedMolecules(acceleration, 0.03)
+            molecules = nextValue(molecules, speedMolecules, 0.03)
             for (let i = 0; i < molecules.length; i++) {
                 sphere[i].position.x = molecules[i].xNextValue
                 sphere[i].position.y = molecules[i].yNextValue
