@@ -4,7 +4,6 @@
 В проекте вы сможете рассмотреть движение n частиц, которые подчиняются закону Кулона (https://ru.wikipedia.org/wiki/Закон_Кулона).
 
 ## Демо
-<video src='https://drive.google.com/file/d/12kVCp9OxLDH1hu05AtsLjdp8yJGlIE2S/view?usp=sharing' width=1800/>
 https://drive.google.com/file/d/12kVCp9OxLDH1hu05AtsLjdp8yJGlIE2S/view?usp=sharing
 ## О проекте
 Для моделирования и визуалиации частиц в проекте использовалась библиотека babylon (https://www.babylonjs.com).
